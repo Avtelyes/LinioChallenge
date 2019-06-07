@@ -28,8 +28,8 @@ class ChallengeTest extends TestCase
     public function should_give_it_word()
     {
         $controller = new \App\Http\Controllers\ChallengeController();
-        $test_arr = $controller->calculateFactor(5);
-        $this->assertEquals('IT',$test_arr);
+        $test_value = $controller->calculateFactor(5);
+        $this->assertEquals('IT',$test_value);
     }
 
     /**
@@ -40,8 +40,8 @@ class ChallengeTest extends TestCase
     public function should_give_linio_word()
     {
         $controller = new \App\Http\Controllers\ChallengeController();
-        $test_arr = $controller->calculateFactor(3);
-        $this->assertEquals('Linio',$test_arr);
+        $test_value = $controller->calculateFactor(3);
+        $this->assertEquals('Linio',$test_value);
     }
 
     /**
@@ -52,8 +52,8 @@ class ChallengeTest extends TestCase
     public function should_give_linianos_word()
     {
         $controller = new \App\Http\Controllers\ChallengeController();
-        $test_arr = $controller->calculateFactor(15);
-        $this->assertEquals('Linianos',$test_arr);
+        $test_value = $controller->calculateFactor(15);
+        $this->assertEquals('Linianos',$test_value);
     }
 
     /**
@@ -64,8 +64,8 @@ class ChallengeTest extends TestCase
     public function should_give_number()
     {
         $controller = new \App\Http\Controllers\ChallengeController();
-        $test_arr = $controller->calculateFactor(4);
-        $this->assertEquals(4,$test_arr);
+        $test_value = $controller->calculateFactor(4);
+        $this->assertEquals(4,$test_value);
     }
 
     /**
