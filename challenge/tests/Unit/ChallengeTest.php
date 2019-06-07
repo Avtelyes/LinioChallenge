@@ -9,26 +9,76 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ChallengeTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * The response is an array.
      *
      * @test
      */
     public function gives_array()
     {
-        $test_arr = $this->get('/challenge')->baseResponse->original;
+        $controller = new \App\Http\Controllers\ChallengeController();
+        $test_arr = $controller->numberGenerator();
         $this->assertIsArray($test_arr);
     }
 
     /**
-     * A basic unit test example.
+     * Test a multiple of five.
      *
      * @test
      */
-    public function gives_multiples()
+    public function should_give_it_word()
     {
         $controller = new \App\Http\Controllers\ChallengeController();
         $test_arr = $controller->calculateFactor(5);
-        print_r($test_arr);
-        $this->assertIsArray($test_arr);
+        $this->assertEquals('IT',$test_arr);
+    }
+
+    /**
+     * Test a multiple of three.
+     *
+     * @test
+     */
+    public function should_give_linio_word()
+    {
+        $controller = new \App\Http\Controllers\ChallengeController();
+        $test_arr = $controller->calculateFactor(3);
+        $this->assertEquals('Linio',$test_arr);
+    }
+
+    /**
+     * Test a multiple of five and three.
+     *
+     * @test
+     */
+    public function should_give_linianos_word()
+    {
+        $controller = new \App\Http\Controllers\ChallengeController();
+        $test_arr = $controller->calculateFactor(15);
+        $this->assertEquals('Linianos',$test_arr);
+    }
+
+    /**
+     * Test a non multiple of three and five.
+     *
+     * @test
+     */
+    public function should_give_number()
+    {
+        $controller = new \App\Http\Controllers\ChallengeController();
+        $test_arr = $controller->calculateFactor(4);
+        $this->assertEquals(4,$test_arr);
+    }
+
+    /**
+     * Test the multiples container.
+     *
+     * @test
+     */
+    public function should_give_multiples()
+    {
+        $controller = new \App\Http\Controllers\ChallengeController();
+        $test_arr = $controller->numberGenerator();
+        $this->assertEquals('IT',$test_arr[100-1]);
+        $this->assertEquals('Linianos',$test_arr[30-1]);
+        $this->assertEquals('Linio',$test_arr[33-1]);
     }
 }

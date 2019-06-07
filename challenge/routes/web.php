@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','ChallengeController@index');
 
 Route::get('/challenge', 'ChallengeController@numberGenerator');
