@@ -12,7 +12,7 @@ class ChallengeController extends Controller
     public function index(){
         $response = $this->numberGenerator();
 
-        return view('welcome',compact('response'));
+        return view('layouts/numbers',compact('response'));
     }
 
     /**

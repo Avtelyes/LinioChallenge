@@ -12,5 +12,6 @@
 */
 
 Route::get('/','ChallengeController@index');
+Route::get('/kites','FactoryController@index');
 
 Route::get('/challenge', 'ChallengeController@numberGenerator');
